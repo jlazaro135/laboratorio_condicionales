@@ -1,6 +1,6 @@
 # laboratorio condicionales
 
-[DEMO LINK - LABORATORIO CONDICIONALES] (https://laboratio-condicionales.netlify.app/)
+[DEMO LINK - LABORATORIO CONDICIONALES](https://laboratio-condicionales.netlify.app/)
 
 INTRODUCCIÓN
 He desarrollado todas las propuestas del laboratorio y he añadido features por mi cuenta, como son las animaciones. He intentado crearlo lo más modularizado posible, intentado respetar el principio de única responsabilidad única de las funciones. Algunas de las características de este proyecto son:
