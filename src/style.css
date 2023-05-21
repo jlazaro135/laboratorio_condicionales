@@ -31,12 +31,17 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 1rem;
 }
 
 h1 {
-  font-size: 2em;
+  font-family: "Sail", "sans-serif";
+  font-size: 3em;
+  color: #fff;
   line-height: 1.1;
   margin: 1rem 0;
+  text-shadow: 1px 1px 10px #ffeb00;
+  
 }
 
 #app {
@@ -46,6 +51,10 @@ h1 {
   padding: 0 2rem;
   text-align: center;
   min-height: 100vh;
+  background-color: green;
+  border: 2px solid #fff;
+  outline: 2px solid green;
+  border-radius: 10px;
 }
 
 .logo {
@@ -79,6 +88,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 0 0.5rem;
 }
 button:enabled:hover {
   border-color: #646cff;
@@ -99,6 +109,11 @@ button:focus-visible {
   button {
     background-color: rgb(224, 224, 224);
   }
+}
+
+.give-btn {
+  background-color: #cc2f14;
+  color: #fff;
 }
 
 .cards-wrapper {
@@ -135,10 +150,30 @@ button:focus-visible {
   gap: 0.5rem;
   padding: 0.3rem;
   border-radius: 5px;
-  background-color: green;
+  background-color: #00a100;
   border: 2px solid #fff;
   outline: 2px solid green;
   min-height: 100px;
+}
+
+.cards-gotten-wrapper:before {
+  content: "🂡";
+  font-size: 3rem;
+  color: #fff;
+  position: absolute;
+  left: 2%;
+  top: 1%;
+  transform: rotate(335deg);
+}
+
+.cards-gotten-wrapper:after {
+  content: "🂡";
+  font-size: 3rem;
+  color: #fff;
+  position: absolute;
+  right: 2%;
+  bottom: 1%;
+  transform: rotate(20deg);
 }
 
 .card-gotten-img {
@@ -147,7 +182,7 @@ button:focus-visible {
   top: 0;
   width: 100%;
   vertical-align: bottom;
-  transition: top 1s ease-in-out;
+  transition: top 0.5s ease-in-out;
 }
 
 .card-gotten-img.is-created {
@@ -158,11 +193,12 @@ button:focus-visible {
   font-size: 2rem;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  background-color: #eb5555;
-  color: #fff;
-  border-radius: 10px;
+  color: #6a6200;
+  background-color: #ffeb00;
   max-width: 500px;
   margin: 1rem auto;
+  border: 2px solid #6a6200;
+  outline: 2px solid #ffeb00;
 }
 
 .flip-card:nth-child(1) {
@@ -259,8 +295,9 @@ button:focus-visible {
   transition: top 1s ease-in-out;
 }
 
-.modal{
+.modal {
   position: absolute;
+  min-width: 400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -270,10 +307,20 @@ button:focus-visible {
   text-align: center;
 }
 
-.overlay{
-  position: absolute;
-  background-color: #00000054;
-  width: 100%;
-  height: 100%;
+.modal h2 {
+  font-size: 2.5rem;
+  margin: 0;
 }
 
+.modal p {
+  font-size: 1.5rem;
+}
+
+.overlay {
+  position: absolute;
+  background-color: #00000054;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
