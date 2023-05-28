@@ -22,7 +22,8 @@ export function updateGameState(): void {
     partida.accumulatedPoints = partida.accumulatedPoints + partida.cardValue;
 }
 
-type GameResult = "win" | "lose" | "continue";
+type GameResult = "win" | "lose"| "continue";
+type NextScenary = 'fail' | 'megafail' | 'success';
 
 export function checkGameResult(points: number): GameResult {
     if (points > MAXIMUNPOINTS) {
@@ -31,7 +32,17 @@ export function checkGameResult(points: number): GameResult {
     if (points === MAXIMUNPOINTS) {
         return 'win';
     }
-    return "continue";
+    return 'continue';
+}
+
+export function checkNextCardScenaryResult(points: number): NextScenary {
+    if(points === MAXIMUNPOINTS) {
+        return 'megafail';
+    }
+    if(points < MAXIMUNPOINTS) {
+        return 'fail';
+    }
+    return 'success';
 }
 
 

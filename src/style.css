@@ -206,46 +206,6 @@ button:focus-visible {
   outline: 2px solid #ffeb00;
 }
 
-.flip-card:nth-child(1) {
-  top: 0;
-}
-
-.flip-card:nth-child(2) {
-  top: 10px;
-}
-
-.flip-card:nth-child(3) {
-  top: 20px;
-}
-
-.flip-card:nth-child(4) {
-  top: 30px;
-}
-
-.flip-card:nth-child(5) {
-  top: 40px;
-}
-
-.flip-card:nth-child(6) {
-  top: 50px;
-}
-
-.flip-card:nth-child(7) {
-  top: 60px;
-}
-
-.flip-card:nth-child(8) {
-  top: 70px;
-}
-
-.flip-card:nth-child(9) {
-  top: 80px;
-}
-
-.flip-card:nth-child(10) {
-  top: 90px;
-}
-
 .flip-card {
   position: absolute;
   left: 0;
@@ -296,7 +256,7 @@ button:focus-visible {
 }
 
 .flip-card.moving-out {
-  top: 1000px;
+  top: 1000px!important;
   transition: top 1s ease-in-out;
 }
 
