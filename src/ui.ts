@@ -40,6 +40,8 @@ export let giveMeCardBtn = document.querySelector(".ts-give-btn");
 export let endGameBtn = document.querySelector(".ts-end-game-btn");
 let cardsTable = document.querySelector(".ts-cards-table");
 let cardsWrapper = document.querySelector(".ts-cards-wrapper");
+let transitionTime : number = 1;
+let timeOutForShowCard : number = 1.5;
 
 export function createSmallCardElement(url: string): HTMLDivElement {
   let divElement = document.createElement("div");
@@ -93,14 +95,15 @@ function flipCard(card: HTMLElement): void {
   if (!(cardImg instanceof HTMLImageElement)) return;
   cardImg.src = imgUrl(partida.cardName);
   card.classList.add("is-active");
-  toggleEndGameAvialibility();
 }
 
 function toggleEndGameAvialibility(): void {
-  if (partida.isGameFinished) return;
-  let endGameBtn = document.querySelector(".ts-end-game-btn");
   if (!(endGameBtn instanceof HTMLButtonElement)) return;
-  endGameBtn.removeAttribute("disabled");
+  if(endGameBtn.disabled === true){
+    endGameBtn.disabled = false
+    return;
+  }
+  endGameBtn.disabled = true;
 }
 
 function flipAndRemoveCard(card: HTMLElement): void {
@@ -150,6 +153,7 @@ function createModal(heading: string, text: string): HTMLDivElement {
 }
 
 function deployEndGameModal(paragraph: string): void {
+  toggleButtons();
   let modal = createModal(ENDGAMEHEADING, paragraph);
   document.body.append(modal);
 }
@@ -169,22 +173,19 @@ function delayAppendModalToBody(modal: HTMLElement, timmer: number = 0): void {
 
 function seeNextCard(): void {
   partida.isGameFinished = true;
-  deleteModalAndDisableBtns();
+  deleteModal();
   showCardAndUpdateScore();
   checkNextCardScenary();
 }
 
-function deleteModalAndDisableBtns(): void {
+function deleteModal(): void {
   let overlay = document.querySelector(".ts-overlay");
   if (!(overlay instanceof HTMLDivElement)) return;
   overlay.remove();
-  if (!(giveMeCardBtn instanceof HTMLButtonElement)) return;
-  giveMeCardBtn.disabled = true;
-  if (!(endGameBtn instanceof HTMLButtonElement)) return;
-  endGameBtn.disabled = true;
 }
 
 function deployDelayedModal(title: string, paragraph: string): void {
+  toggleButtons();
   deployAndDelayModal(title, paragraph, timeOut);
 }
 
@@ -265,8 +266,17 @@ export function checkPointsAndDisplayModal(): void {
 
 export function checkButtonClicked(e: Event): void {
   if (!(e.target instanceof HTMLButtonElement)) return;
-  if (e.target.classList.contains("ts-try-again")) appendCardsToTable();
-  if (e.target.classList.contains("ts-see-next-card")) seeNextCard();
+  if (e.target.classList.contains("ts-try-again")) handleTryAgainEvent();
+  if (e.target.classList.contains("ts-see-next-card")) handleSeeNextCardEvent();
+}
+
+function handleTryAgainEvent(): void{
+  appendCardsToTable();
+}
+
+function handleSeeNextCardEvent(): void{
+  toggleButtons();
+  seeNextCard();
 }
 
 function createCardElement(): HTMLDivElement {
@@ -304,15 +314,21 @@ function resetPartida(): void {
   partida.index = -1;
 }
 
-function resetGiveMeCardBtnAvailability(): void {
+function toogleGiveMeCardBtnAvailability(): void {
   if (!(giveMeCardBtn instanceof HTMLButtonElement)) return;
   if (giveMeCardBtn.disabled === true) {
-    giveMeCardBtn?.removeAttribute("disabled");
+    giveMeCardBtn.disabled = false;
+    return
   }
+  giveMeCardBtn.disabled = true
+}
+
+function toggleButtons(): void{
+  toggleEndGameAvialibility();
+  toogleGiveMeCardBtnAvailability();
 }
 
 function resetGame(): void {
-  resetGiveMeCardBtnAvailability();
   emptyCardsTable();
   removeModal();
   resetArray();
@@ -339,18 +355,20 @@ function resetArray(): void {
 }
 
 export function appendCardsToTable(): void {
+  let transitionForTimeOut: number = (transitionTime + timeOutForShowCard)*100
   if (!(cardsWrapper instanceof HTMLDivElement)) return;
   resetGame();
   originalCardObjsArr.forEach((_, i) => {
     let cardElement = createCardElement();
     cardElement.style.top = '1000px';
-    cardElement.style.transition = "top 1s ease-in-out";
+    cardElement.style.transition = `top ${transitionTime}s ease-in-out`;
     if (!(cardsWrapper instanceof HTMLDivElement)) return;
     cardsWrapper.append(cardElement);
     setTimeout(() => {
       cardElement.style.top = calculateCardTopPosition(i);
-    }, 150 * i);
+    }, (timeOutForShowCard*100) * i);
   });
+  setTimeout(() => toogleGiveMeCardBtnAvailability(), transitionForTimeOut * originalCardObjsArr.length)
 }
 
 function calculateCardTopPosition(index: number): string {
@@ -361,3 +379,5 @@ function calculateCardTopPosition(index: number): string {
   topPositionToString = topPosition.toString().concat("px");
   return topPositionToString;
 }
+
+

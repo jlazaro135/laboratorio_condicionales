@@ -7,18 +7,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Pangolin&display=swap" rel="stylesheet">    <link rel="stylesheet" href="src/style.css">
     <title>Juego - las 7 y media</title>
   </head>
   <body>
     <div id="app">
       <h1>Siete y Media</h1>
       <div class="game-wrapper">
+        <div>
+          <p class="last-score">Puntuación partida anterior: <span>10</span></p>
+          <p class="games">Partidas jugadas: <span>10</span></p>
+          <p class="score-mean">Puntuación media: <span>10</span></p>
+        </div>
         <div class="cards-wrapper ts-cards-wrapper">
         </div>
         <div class="display-wrapper">
           <div class="btn-wrapper">
-            <button class="give-btn ts-give-btn">Dame carta</button>
+            <button class="give-btn ts-give-btn" disabled>Dame carta</button>
             <button class="ts-end-game-btn" disabled>¡Me planto!</button>
           </div>
           <div class="display">

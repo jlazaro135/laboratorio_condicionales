@@ -114,6 +114,22 @@ button:focus-visible {
   }
 }
 
+.last-score, .score-mean,.games{
+  font-family:'Pangolin', sans-serif;
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.score-mean{
+  margin-bottom: 1rem;
+}
+
+.give-btn:disabled {
+  background-color: #959595;
+  color: #fff;
+}
+
 .give-btn {
   background-color: #cc2f14;
   color: #fff;
