@@ -37,6 +37,9 @@ export interface Partida {
     cardName: string;
     cardValue: number;
     accumulatedPoints: number;
+    lastScore: number;
+    games: number,
+    scoreMean: number,
     isGameFinished: boolean;
 }
 
@@ -45,6 +48,11 @@ export const createInitialPartida = (): Partida => ({
     cardName: "",
     cardValue: 0,
     accumulatedPoints: 0,
+    lastScore: 0,
+    games: 0,
+    scoreMean: 0,
     isGameFinished: false,
   });
+
+export const scoresArray: number[] = [];
   

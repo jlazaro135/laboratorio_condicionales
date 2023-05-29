@@ -1,7 +1,7 @@
 import {
   checkPointsAndDisplayModal,
   showCardAndUpdateScore,
-  checkButtonClicked,
+  handleBtnsEvents,
   giveMeCardBtn,
   endGameBtn,
   appendCardsToTable,
@@ -15,7 +15,7 @@ if (endGameBtn instanceof HTMLButtonElement)
   endGameBtn.addEventListener("click", () => checkPointsAndDisplayModal());
 
 document.addEventListener("click", (e) => {
-  checkButtonClicked(e);
+ handleBtnsEvents(e);
 });
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -46,3 +46,4 @@ export function checkNextCardScenaryResult(points: number): NextScenary {
 }
 
 
+

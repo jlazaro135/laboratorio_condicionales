@@ -6,6 +6,7 @@ import {
   FIRSTPOINTSINSIDERANGE,
   SECONDPOINTSINSIDERANGE,
   originalCardObjsArr,
+  scoresArray,
 } from "./model";
 
 import {
@@ -208,8 +209,8 @@ function deployGameResultModal(title: string, paragraph: string): void {
 function setPointsAndCheckResult(): void {
   let { accumulatedPoints, isGameFinished } = partida;
 
-  renderPoints(accumulatedPoints);
   if (isGameFinished) return;
+  renderPoints(accumulatedPoints);
   switch (checkGameResult(accumulatedPoints)) {
     case "win":
       deployGameResultModal(WINHEADING, MATCHED);
@@ -264,14 +265,67 @@ export function checkPointsAndDisplayModal(): void {
   }
 }
 
-export function checkButtonClicked(e: Event): void {
+export function handleBtnsEvents(e: Event): void {
   if (!(e.target instanceof HTMLButtonElement)) return;
   if (e.target.classList.contains("ts-try-again")) handleTryAgainEvent();
   if (e.target.classList.contains("ts-see-next-card")) handleSeeNextCardEvent();
 }
 
 function handleTryAgainEvent(): void{
+  renderGameData(partida.accumulatedPoints)
   appendCardsToTable();
+}
+
+function renderGameData(points:number): void{
+  let addGame = ++ partida.games;
+  renderGamesPlayed(addGame);
+  renderLastGamePoints(points);
+  renderAverageScore(points);
+}
+
+function renderGamesPlayed(gamesPlayedNumber:number): void {
+  let gamesPlayed = document.querySelector(".ts-games");
+  if (!(gamesPlayed instanceof HTMLSpanElement)) return;
+  gamesPlayed.textContent = gamesPlayedNumber.toString();
+}
+
+
+function renderLastGamePoints(points: number): void {
+  let lastScore = document.querySelector(".ts-last-score");
+  if (!(lastScore instanceof HTMLSpanElement)) return;
+  lastScore.textContent = points.toString();
+  if((partida.isGameFinished)){
+    let finalPoints = points - partida.cardValue
+    lastScore.textContent = finalPoints.toFixed(1);
+    return
+  }
+  if(partida.accumulatedPoints > MAXIMUNPOINTS){
+    let zero: number = 0;
+    scoresArray.push(zero);
+    lastScore.textContent = zero.toFixed(1);
+    return;
+  }
+  scoresArray.push(partida.accumulatedPoints);
+  lastScore.textContent = points.toFixed(1);
+}
+
+function renderAverageScore(points: number): void {
+  let averageScore = document.querySelector(".ts-average-score");
+  if (!(averageScore instanceof HTMLSpanElement)) return;
+  if((partida.isGameFinished)){
+    let finalPoints = points - partida.cardValue
+    scoresArray.push(finalPoints);
+    let average = (scoresArray.reduce((a, b) => a + b, 0) / scoresArray.length);
+    averageScore.textContent = average.toFixed(2);
+    return
+  }
+  if(partida.accumulatedPoints > MAXIMUNPOINTS){
+    scoresArray.push(0);
+  }else{
+  scoresArray.push(partida.accumulatedPoints);
+  }
+  let average = (scoresArray.reduce((a, b) => a + b, 0) / scoresArray.length);
+  averageScore.textContent = average.toFixed(2);
 }
 
 function handleSeeNextCardEvent(): void{
