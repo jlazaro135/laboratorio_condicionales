@@ -7,125 +7,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Pangolin&display=swap" rel="stylesheet">    <link rel="stylesheet" href="src/style.css">
     <title>Juego - las 7 y media</title>
   </head>
   <body>
+    <div class="bg-blur"></div>
     <div id="app">
       <h1>Siete y Media</h1>
       <div class="game-wrapper">
-        <div class="cards-wrapper">
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="front-back">
-              </div>
-            </div>
-          </div>
-          <div class="flip-card ts-flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="card-img" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" alt="card-back">
-              </div>
-              <div class="flip-card-back">
-                <img class="card-img ts-back" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/back.jpg" alt="card-front">
-              </div>
-            </div>
-          </div>
+        <div class="data-game">
+          <p class="last-score">Puntuación partida anterior: <span class="data ts-last-score">0</span></p>
+          <p class="games">Partidas jugadas: <span class="data ts-games">0.0</span></p>
+          <p class="score-mean">Puntuación media: <span class="data ts-average-score">0</span></p>
+        </div>
+        <div class="cards-wrapper ts-cards-wrapper">
         </div>
         <div class="display-wrapper">
           <div class="btn-wrapper">
-            <button class="give-btn ts-give-btn">Dame carta</button>
+            <button class="give-btn ts-give-btn" disabled>Dame carta</button>
             <button class="ts-end-game-btn" disabled>¡Me planto!</button>
           </div>
           <div class="display">
             <div class="cards-gotten-wrapper ts-cards-table">
             </div>
             <div class="points-wrapper">
-              <span class="ts-points">0</span>
+              <span class="ts-points">0.00</span>
               <span>puntos</span>
             </div>
           </div>

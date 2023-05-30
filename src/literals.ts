@@ -1,0 +1,17 @@
+export const literals = {
+    WINHEADING: "PERFECTOOO!!", 
+    GAMEOVERHEADING: "Game Over!",
+    ENDGAMEHEADING: "¡Te has plantado!",
+    SEENEXTCARDTITLESUCCESS: "¡Has hecho bien!",
+    SEENEXTCARDTITLEFAIL: "¡Deberías haber seguido!",
+    GAMEOVERPARAGRAPH: "Lo siento, has superado la puntuación 👎",
+    CONSERVATIVE: "Has sido muy conservador 😲",
+    FRIGHTENED: "Te ha entrado el canguelo eh? 💩",
+    ALMOST: "Casi, casi... 😉",
+    MATCHED: "¡Lo has clavado! ¡Enhorabuena! 🏆",
+    SEENEXTCARDPARASUCCESS: "¡Con la siguiente carta te hubieras pasado! 💃",
+    SEENEXTCARDPARAFAIL: "Todavía no hubieras llegado a 7.5... ¡podrías haber seguido jugando! 👎",
+    SEENEXTCARDPARAMEGAFAIL: "Ouchh! con esta carta habrías llegado a 7.5 😕",   
+    SEENEXTCARD: "Ver siguiente carta",
+    TRYAGAIN: "Volver a intentar",
+}
