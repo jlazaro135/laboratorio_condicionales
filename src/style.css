@@ -35,7 +35,18 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+.bg-blur {
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 h1 {
@@ -123,12 +134,17 @@ button:focus-visible {
 }
 
 .last-score, .score-mean, .games{
-  font-family:'Pangolin', sans-serif;
+  font-family: 'Pangolin', sans-serif;
   color: #fff;
   font-size: 1rem;
   margin: 0;
   border-right: 1px solid #fff;
   padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .score-mean{
@@ -136,7 +152,11 @@ button:focus-visible {
 }
 
 .data{
-  display: inline-block;
+  display: flex;
+  min-width: 40px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
   padding: 0.3rem;
   background-color: #ffeb00;
   color: #6a6200;

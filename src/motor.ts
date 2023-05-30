@@ -45,5 +45,17 @@ export function checkNextCardScenaryResult(points: number): NextScenary {
     return 'success';
 }
 
+export function resetArray(): void {
+    copiedAndModfiedCardObjsArr.length = 0;
+    copiedAndModfiedCardObjsArr.push(...originalCardObjsArr);
+}
 
+export function resetPartida(): void {
+    partida.accumulatedPoints = 0;
+    partida.isGameFinished = false;
+    partida.cardName = "";
+    partida.cardValue = 0;
+    partida.index = -1;
+  }
+  
 

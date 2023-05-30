@@ -1,11 +1,11 @@
 import {
-  checkPointsAndDisplayModal,
   showCardAndUpdateScore,
   handleBtnsEvents,
-  giveMeCardBtn,
-  endGameBtn,
-  appendCardsToTable,
-} from "./ui";
+} from "./ui/ui";
+
+import { giveMeCardBtn, endGameBtn } from "./ui/buttons";
+import { appendCardsToTable } from "./ui/card";
+import { checkPointsAndDisplayModal } from "./ui/modal";
 
 if (giveMeCardBtn instanceof HTMLButtonElement)
   giveMeCardBtn.addEventListener("click", () => {
